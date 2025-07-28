@@ -140,13 +140,13 @@ Implements an Extended Kalman Filter that estimates the state vector including s
 **Run with:**
 
 ```matlab
-EKF_adaptive
+estimator_EKF.m
 ```
 
 
 ### Monte Carlo Estimator
 
-Script: `MC_estimator.m`
+Script: `estimator_MC.m`
 
 Uses a Monte Carlo approach to estimate stiffness `k` and damping `b` parameters by sampling candidate values, computing errors between predicted and measured interaction forces, and filtering the samples to adaptively refine estimates over time.
 
@@ -160,7 +160,7 @@ Uses a Monte Carlo approach to estimate stiffness `k` and damping `b` parameters
 **Run with:**
 
 ```matlab
-MC_estimator
+estimator_MC.m
 ```
 
 
@@ -202,4 +202,3 @@ If you find this repository useful or have questions, feel free to open an issue
 **Author:** Elisa G. Vergamini and André Vecchione
 **Date:** July 2025
 
----
