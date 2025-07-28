@@ -49,9 +49,9 @@ HRI_IC2D/
 - [Data](#data)
 - [Installation](#installation)
 - [Usage](#usage)
-  - [Kalman Filter Tuner](#kalman-filter-tuning-via-particle-swarm-optimization)
-  - [Adaptive EKF Estimator](#adaptive-ekf-with-tighter-tuning-and-real-time-smoothing)
-  - [Monte Carlo Estimator](#monte-carlo-estimator)
+  - [Kalman Filter](#kalman-filter-tuned-via-particle-swarm-optimization)
+  - [Adaptive EKF](#adaptive-ekf-with-tighter-tuning-and-real-time-smoothing)
+  - [Monte Carlo ](#monte-carlo-estimator)
 - [Performance Metrics](#performance-metrics)
 - [Functions Description](#functions-description)
 - [References](#references)
@@ -93,31 +93,40 @@ Make sure these `.mat` files are placed in the working directory before running 
 
 ## Usage
 
-### Kalman Filter Tuning via Particle Swarm Optimization
 
-Script: `KF_tuner.m`
+### Kalman Filter Tuned via Particle Swarm Optimization
 
-This script automatically tunes the KF process and measurement noise covariance matrices `Q` and `R` by minimizing the root mean square error (RMSE) of the interaction force estimate using MATLAB's particle swarm optimizer.
+**Scripts:** `KF_tuner.m` and `estimator_KF.m`
+
+The first script automatically tunes the Kalman Filter (KF) process and measurement noise covariance matrices, `Q` and `R`, by minimizing the root mean square error (RMSE) of the interaction force estimate. It uses MATLAB’s Particle Swarm Optimization (PSO) for this purpose.
 
 **Features:**
-- Loads experimental data.
-- Sets physical parameters.
-- Defines optimization variables and bounds in logarithmic scale.
-- Runs PSO to find optimal diagonal elements of `Q` and `R`.
-- Runs the KF with optimized parameters.
-- Plots interaction force estimates against ground truth.
-- Prints error metrics.
 
-**Run with:**
+* Loads experimental data and known physical parameters.
+* Defines optimization variables and bounds in logarithmic scale.
+* Runs PSO to find optimal diagonal elements of `Q` and `R`.
+* Runs the KF with optimized parameters.
+* Plots interaction force estimates against ground truth.
+* Prints error metrics.
+
+**Important:**
+The Kalman Filter covariance matrices `Q` and `R` **must be tuned first** using this `KF_tuner.m` script. After tuning, **update the `Q` and `R` matrices in `estimator_KF.m` with the optimized values** before running the estimator for accurate force estimation.
+
+**To run:**
+
 ```matlab
 KF_tuner
-````
+```
 
+After tuning, use the optimized matrices in the Kalman Filter estimator:
 
+```matlab
+estimator_KF
+```
 
 ### Adaptive EKF with Tighter Tuning and Real-Time Smoothing
 
-Script: `EKF_adaptive.m`
+Script: `estimator_EKF.m`
 
 Implements an Extended Kalman Filter that estimates the state vector including stiffness and damping parameters (`k` and `c`) adaptively. It updates process and measurement noise covariances online using innovation and residual statistics, and applies a real-time low-pass filter to smooth the estimated interaction force.
 
