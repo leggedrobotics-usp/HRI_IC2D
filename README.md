@@ -8,38 +8,48 @@ The three main approaches are:
 - **Adaptive Extended Kalman Filter (EKF) with real-time noise covariance adaptation and smoothing**
 - **Monte Carlo (MC) method for parameter estimation**
 
+Sure! Here's a clean, clear rewrite of your repository structure section for the README:
 
-Repository Structure
+---
 
+## Repository Structure
+
+```
 HRI_IC2D/
 │
-├── data/                     # Raw data file from dSPACE MicroLabBox
-│   ├── spring2k_1.mf4            
-│   ├── spring2k_2.mf4            
-│   ├── spring5k_1.mf4            
+├── data/                        # Raw data files from dSPACE MicroLabBox (MF4 format)
+│   ├── spring2k_1.mf4           
+│   ├── spring2k_2.mf4           
+│   ├── spring5k_1.mf4           
 │   ├── spring5k_2.mf4           
-│   ├── spring10k_1.mf4           
-│   ├── spring10k_2.mf4           
-│   ├── spring20k_1.mf4            
-│   └── spring20k_2.mf4              
+│   ├── spring10k_1.mf4          
+│   ├── spring10k_2.mf4          
+│   ├── spring20k_1.mf4          
+│   └── spring20k_2.mf4          
 │
-├── scripts/
-│   ├── read_mf4_to_mat.m            # Reads .mf4 files and saves .mat data
-│   ├── KF_tuner.m                   # Kalman Filter Tuning via Particle Swarm Optimization
-│   ├── estimator_KF.m               # Linear Kalman Filter
-│   ├── estimator_EKF.m              # Adaptive Extended Kalman Filter
-│   └── estimator_MC.m               # Monte Carlo force estimator
+├── scripts/                     # MATLAB scripts for data processing and estimation
+│   ├── read_mf4_to_mat.m        # Script to convert .mf4 raw data files into .mat files
+│   ├── KF_tuner.m               # Kalman Filter tuning using Particle Swarm Optimization
+│   ├── estimator_KF.m           # Linear Kalman Filter estimator implementation
+│   ├── estimator_EKF.m          # Adaptive Extended Kalman Filter estimator
+│   └── estimator_MC.m           # Monte Carlo based force estimator
 │
-├── Spring2k_1.mat                  # Processed .mat data file
-├── Spring2k_2.mat                  # Processed .mat data file
-├── Spring5k_1.mat                  # Processed .mat data file
-├── Spring5k_2.mat                  # Processed .mat data file
-├── Spring10k_1.mat                  # Processed .mat data file
-├── Spring10k_2.mat                  # Processed .mat data file
-├── Spring20k_1.mat                  # Processed .mat data file
-├── Spring20k_2.mat                  # Processed .mat data file
-└── README.md
+├── Spring2k_1.mat               # Processed MATLAB data files (.mat format)
+├── Spring2k_2.mat
+├── Spring5k_1.mat
+├── Spring5k_2.mat
+├── Spring10k_1.mat
+├── Spring10k_2.mat
+├── Spring20k_1.mat
+├── Spring20k_2.mat
+└── README.md                    # Project overview and instructions
+```
+
 ---
+
+If you want, I can help you integrate this directly into your existing README!
+
+
 
 ## Table of Contents
 
