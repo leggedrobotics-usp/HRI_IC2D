@@ -1,5 +1,6 @@
-HRI_IC2D
-Human–Robot Interaction Force Estimation with the IC2D Test Bench
+# HRI\_IC2D
+
+## Human–Robot Interaction Force Estimation with the IC2D Test Bench
 
 This repository provides experimental data and MATLAB implementations of three estimators for human–robot interaction (HRI) forces, validated on the IC2D (Impedance Control in 2 Dimensions) platform. The goal is to evaluate methods for improving transparency in wearable robots when direct force sensing is unavailable or limited.
 
